@@ -1,7 +1,7 @@
 <?php
     class byMemberCategory{
-        public $clubSingles;
         public $clubTwins;
+        public $clubSingles;
         public $privateOwners;
 
         public function __construct(){

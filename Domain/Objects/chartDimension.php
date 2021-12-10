@@ -5,16 +5,16 @@
         //e.g. "current year"  , value1
         //     "current year-1", value2
         //etc...
-        public $periods; 
+        public $rows; 
 
         public function __construct()
         {
-            $this->periods = array();
+            $this->rows = array();
         }
 
         //key string, value scalar
-        public function addPeriod($key, $value){
-            $this->periods[$key] = $value;
+        public function addRow($key, $value){
+            $this->rows[$key] = $value;
         }
     }
 ?>

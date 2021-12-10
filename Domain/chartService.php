@@ -26,13 +26,12 @@
             $flyingHoursChart = new chartDimension();
             $launchesChart = new chartDimension();
             
-            for ($i = 0; $i <= 5; $i++) {
+            for ($i = 5; $i >= 0; $i--) {
                 $dataSet = $this->dataService->getDataByTimeInterval($getTimeInterval($month, $year-$i));
                 $key = ($i == 0 ? "current year" : "current year - ".$i);
-                var_dump($dataSet);
-                $flyingDaysChart->addPeriod($key, $dataSet->flyingDays);
-                $flyingHoursChart->addPeriod($key, $dataSet->hours);
-                $launchesChart->addPeriod($key, $dataSet->launches);
+                $flyingDaysChart->addRow($key, $dataSet->flyingDays);
+                $flyingHoursChart->addRow($key, $dataSet->hours);
+                $launchesChart->addRow($key, $dataSet->launches);
             };
 
             return new chartSet($flyingDaysChart, $flyingHoursChart, $launchesChart);
