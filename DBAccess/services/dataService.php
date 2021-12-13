@@ -1,5 +1,5 @@
 <?php
-    require_once './DAL/Types/dataSet.php';
+    require_once './DBAccess/model/dataSet.php';
 
     class dataService{
         private $totalsDbObject;

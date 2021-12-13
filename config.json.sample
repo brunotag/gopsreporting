@@ -1,0 +1,14 @@
+{
+    "SQL":{
+        "host": "your-db-server-machine-name",
+        "username": "your-db-user-name",
+        "password": "your-db-pass-word",
+        "db": "your-db-name"
+    },
+    "Google":{
+        "templateId": "the-id-of-the-templated-google-sheet",
+        "applicationName": "just-an-identifier-for-google-api-logs",
+        "sheetName": "the-name-of-the-sheet-to-replace-in-the-spreadSheet"
+    },
+    "spreadSheetName": "%year$d-%month$02d - TEST - Monthly Dashboard - %monthName$s %year$d"
+}

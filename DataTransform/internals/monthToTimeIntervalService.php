@@ -1,28 +1,28 @@
 <?php
-    require 'timeInterval.php';
+    require_once './DBAccess/model/timeInterval.php';
 
-    class monthToTimeInterval{
+    class monthToIntervalService{
         public function __construct(){}
         
         public function getMonthTimeInterval($month, $year){
-            $startDateInclusive = monthToTimeInterval::getStartDateInclusive($month,$year);
-            $endDateExclusive = monthToTimeInterval::getEndDateExclusive($month,$year);
+            $startDateInclusive = monthToIntervalService::getStartDateInclusive($month,$year);
+            $endDateExclusive = monthToIntervalService::getEndDateExclusive($month,$year);
             return new timeInterval($startDateInclusive, $endDateExclusive);
         }
 
         public function getYTDTimeInterval($month, $year){
             //YTD begins in JULY (7)
             if ($month<7){
-                $startDateInclusive = monthToTimeInterval::getStartDateInclusive(7,$year - 1);
+                $startDateInclusive = monthToIntervalService::getStartDateInclusive(7,$year - 1);
             }else{
-                $startDateInclusive = monthToTimeInterval::getStartDateInclusive(7,$year); 
+                $startDateInclusive = monthToIntervalService::getStartDateInclusive(7,$year); 
             }
-            $endDateExclusive = monthToTimeInterval::getEndDateExclusive($month,$year);
+            $endDateExclusive = monthToIntervalService::getEndDateExclusive($month,$year);
             return new timeInterval($startDateInclusive, $endDateExclusive);
         }
 
         private static function getStartDateInclusive($month, $year){
-            $startDateInclusive = monthToTimeInterval::getMyIntegerDate($month,$year);
+            $startDateInclusive = monthToIntervalService::getMyIntegerDate($month,$year);
             return $startDateInclusive;
         }
 
@@ -32,7 +32,7 @@
                 $month = 1;
                 $year += 1;
             }
-            $endDateExclusive =  monthToTimeInterval::getMyIntegerDate($month,$year);
+            $endDateExclusive =  monthToIntervalService::getMyIntegerDate($month,$year);
             return $endDateExclusive;
         }
 

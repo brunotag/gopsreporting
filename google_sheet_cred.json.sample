@@ -1,0 +1,14 @@
+// this file is supposed to contain the OAuth2 credentials of a google service account
+{
+    "type": "service_account",
+    "project_id": "***",
+    "private_key_id": "***",
+    "private_key": "-----BEGIN PRIVATE KEY-----***-----END PRIVATE KEY-----\n",
+    "client_email": "***@***.iam.gserviceaccount.com",
+    "client_id": "***",
+    "auth_uri": "***",
+    "token_uri": "***",
+    "auth_provider_x509_cert_url": "***",
+    "client_x509_cert_url": "***"
+  }
+  

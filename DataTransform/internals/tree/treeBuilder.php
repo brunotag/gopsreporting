@@ -1,6 +1,6 @@
 <?php
-    require './Domain/node.php';
-    require './Domain/keyValue.php';
+    require 'node.php';
+    require 'keyValue.php';
 
     class treeBuilder{
         public $dataService;
