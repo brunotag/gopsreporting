@@ -3,11 +3,11 @@
     require './DAL/dbObjects/utilisationByCategoryDbObject.php';
     require './DAL/dbObjects/totalsDbObject.php';
     require './DAL/Services/monthToTimeInterval.php';
-    require './Domain/chartService.php';
+    require './Domain/treeBuilder.php';
     require './DAL/dataService.php';
 
     class DataModule{
-        public static function getCharts($month, $year){
+        public static function getChartTree($month, $year){
             ($string = file_get_contents('./config.json')) || die("can't find config file");;
             ($json_a = json_decode($string)) || die("can't decode configuration");
             $db = new db($json_a->SQL->host,$json_a->SQL->username,$json_a->SQL->gnocchi,$json_a->SQL->db);
@@ -18,12 +18,9 @@
         
             $timeIntervalService = new monthToTimeInterval();
         
-            $chartService = new chartService($dataService, $timeIntervalService);
+            $treeBuilder = new treeBuilder($dataService, $timeIntervalService);
         
-            return array(
-                "monthChart" => $chartService->getMonthCharts($month, $year),
-                "YTDChart" => $chartService->getYTDCharts($month, $year)
-            );
+            return $treeBuilder->getChartTree($month, $year);
         }
     }
 ?>

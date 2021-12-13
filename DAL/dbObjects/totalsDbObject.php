@@ -16,8 +16,8 @@ SQL;
         }
 
         protected function buildReturnValue($buildReturnValue){
-            $this->flyingDays = $buildReturnValue["Flying_days"];
-            $this->totalFlights = $buildReturnValue["Total_flights"];
+            $this->flyingDays = (int)$buildReturnValue["Flying_days"];
+            $this->totalFlights = (int)$buildReturnValue["Total_flights"];
         }
 
         protected function reset(){

@@ -29,16 +29,16 @@ SQL;
         protected function buildReturnValue($buildReturnValue){
             switch ($buildReturnValue["category_of_customer"]) {
                 case "club_singles":
-                    $this->launches->clubSingles = $buildReturnValue["launches"];
-                    $this->hours->clubSingles = $buildReturnValue["hours"];
+                    $this->launches->clubSingles = (int)$buildReturnValue["launches"];
+                    $this->hours->clubSingles = (float)$buildReturnValue["hours"];
                     break;
                 case "club_twin":
-                    $this->launches->clubTwins = $buildReturnValue["launches"];
-                    $this->hours->clubTwins = $buildReturnValue["hours"];
+                    $this->launches->clubTwins = (int)$buildReturnValue["launches"];
+                    $this->hours->clubTwins = (float)$buildReturnValue["hours"];
                     break;
                 case "private_owners":
-                    $this->launches->privateOwners = $buildReturnValue["launches"];
-                    $this->hours->privateOwners = $buildReturnValue["hours"];
+                    $this->launches->privateOwners = (int)$buildReturnValue["launches"];
+                    $this->hours->privateOwners = (float)$buildReturnValue["hours"];
                     break;
               }
         }
