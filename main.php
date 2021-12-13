@@ -1,11 +1,16 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
-require 'dataModule.php';
 require './Domain/month.php';
 require './Domain/depthFirstIterator.php';
 require './Domain/exportToChartRowsVisitor.php';
 require './Google/googleDriveAPIService.php';
 require './Google/googleSheetsAPIService.php';
+require './DAL/db.php';
+require './DAL/dbObjects/utilisationByCategoryDbObject.php';
+require './DAL/dbObjects/totalsDbObject.php';
+require './DAL/Services/monthToTimeInterval.php';
+require './Domain/treeBuilder.php';
+require './DAL/dataService.php';
 
 
 putenv('GOOGLE_APPLICATION_CREDENTIALS='.__DIR__.'/google_sheet_cred.json');
@@ -16,7 +21,19 @@ $year = $argv[2];
 ($year >= 2000 && $year <= 2200) || die('error: year out of range.');
 ($month >= 1 && $month <= 12) || die('error: month out of range.');
 
-$tree = DataModule::getChartTree($month, $year);
+($string = file_get_contents('./config.json')) || die("can't find config file");;
+($json_a = json_decode($string)) || die("can't decode configuration");
+$db = new db($json_a->SQL->host,$json_a->SQL->username,$json_a->SQL->gnocchi,$json_a->SQL->db);
+
+$totalsDbObject = new totalsDbObject($db);
+$utilisationDbObject = new utilisationByCategoryDbObject($db);
+$dataService = new dataService($totalsDbObject,$utilisationDbObject);
+
+$timeIntervalService = new monthToTimeInterval();
+
+$treeBuilder = new treeBuilder($dataService, $timeIntervalService);
+
+$tree = $treeBuilder->getChartTree($month, $year);
 
 $iterator = new depthFirstIterator($tree, 1, true); //minLevel 1 to skip root, resetLevelToZero so offset is 0
 $visitor = new exportToChartRowsVisitor();
@@ -37,10 +54,13 @@ $spreadSheet = $googleDriveManager->copyFileFromTemplate(
 );
 
 $googleSheetsService = new googleSheetsAPIService($config->Google->applicationName);
-for($i=0;$i<count($chartRows);$i++){
-    $row = $chartRows[$i];
-    $googleSheetsService->writeRangeInRow($spreadSheet->id, "raw_data", $i+1, $row->getOffset(), $row->getValues());
-}
+// for($i=0;$i<count($chartRows);$i++){
+//     $row = $chartRows[$i];
+//     $googleSheetsService->writeRangeInRow($spreadSheet->id, "raw_data", $i, $row->getOffset(), $row->getValues());
+// }
+$googleSheetsService->writeChartRows($spreadSheet->id, "raw_data", $chartRows);
+
+return;
 
 
 
