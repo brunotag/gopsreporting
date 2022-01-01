@@ -1,8 +1,8 @@
 <?php
-    require_once './DataTransform/internals/monthToTimeIntervalService.php';
-    require_once './DataTransform/internals/tree/treeBuilder.php';
-    require_once './DataTransform/internals/tree/depthFirstIterator.php';
-    require_once './DataTransform/internals/tree/exportToChartRowsVisitor.php';
+    require_once __DIR__.'/DataTransform/internals/monthToTimeIntervalService.php';
+    require_once __DIR__.'/DataTransform/internals/tree/treeBuilder.php';
+    require_once __DIR__.'/DataTransform/internals/tree/depthFirstIterator.php';
+    require_once __DIR__.'/DataTransform/internals/tree/exportToChartRowsVisitor.php';
 
     class dataTransformModule{
         private $dataService;

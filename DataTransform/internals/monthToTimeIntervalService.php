@@ -1,5 +1,5 @@
 <?php
-    require_once './DBAccess/model/timeInterval.php';
+    require_once __DIR__.'/DBAccess/model/timeInterval.php';
 
     class monthToIntervalService{
         public function __construct(){}

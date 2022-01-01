@@ -1,9 +1,9 @@
 <?php
-require './nvsprintf.php';
-require './month.php';
-require './DBAccess/dbAccessModule.php';
-require './DataTransform/dataTransformModule.php';
-require './GoogleAPI/googleAPIModule.php';
+require_once __DIR__.'/nvsprintf.php';
+require_once __DIR__.'/month.php';
+require_once __DIR__.'/DBAccess/dbAccessModule.php';
+require_once __DIR__.'/DataTransform/dataTransformModule.php';
+require_once __DIR__.'/GoogleAPI/googleAPIModule.php';
 
 $argc > 2 || die('error:provide month and year.');
 $month = $argv[1];

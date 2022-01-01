@@ -1,6 +1,6 @@
 <?php
     require_once 'dbObject.php';
-    require_once './DBAccess/model/byMemberCategory.php';
+    require_once __DIR__.'/DBAccess/model/byMemberCategory.php';
 
     class utilisationByCategoryDbObject extends dbObject{
         public $hours;      //byMemberCategory
