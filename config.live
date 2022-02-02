@@ -1,0 +1,15 @@
+{
+    "SQL":{
+        "host": "localhost",
+        "username": "admin",
+        "password": "Checkers305",
+        "db": "gliding"
+    },
+    "Google":{
+        "templateId": "1BW-JRqa1XyF3GwHew0TlgcI3SP43ZnYY26G-zvrPFJ0",
+        "applicationName": "WWGCMonthlyDashboard",
+        "sheetName": "raw_data",
+        "destinationFolderId": "1BAAGY0VhceMobtiyRr6Hkbepgefdmnht"
+    },
+    "spreadSheetName": "%year$d-%month$02d - TEST - Monthly Dashboard - %monthName$s %year$d"
+}

@@ -9,13 +9,14 @@
             parent::__construct($applicationName);
         }
 
-        public function copyFileFromTemplate($sourceFileId, $destinationFileName){
+        public function copyFileFromTemplate($sourceFileId, $destinationFileName, $destinationFolderId){
             $client = $this->getClient();
             $service = new Google_Service_Drive($client);
             $file = $service->files->get($sourceFileId);
             $newFile = new Google_Service_Drive_DriveFile();
             $newFile->name = $destinationFileName;
-            return $service->files->copy($file->id, $newFile);
+            $newFile->parents = [$destinationFolderId];
+            return $service->files->copy($file->id,$newFile);
         }
 
         function scopesToSet(){

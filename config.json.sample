@@ -9,6 +9,7 @@
         "templateId": "the-id-of-the-templated-google-sheet",
         "applicationName": "just-an-identifier-for-google-api-logs",
         "sheetName": "the-name-of-the-sheet-to-replace-in-the-spreadSheet"
+        "destinationFolderId": "the-id-of-the-folder-containing-the-output-reports"
     },
     "spreadSheetName": "%year$d-%month$02d - TEST - Monthly Dashboard - %monthName$s %year$d"
 }

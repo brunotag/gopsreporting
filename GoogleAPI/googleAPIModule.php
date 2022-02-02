@@ -13,7 +13,8 @@
             $googleDriveManager = new googleDriveAPIService($this->googleConfig->applicationName);
             $spreadSheet = $googleDriveManager->copyFileFromTemplate(
                 $this->googleConfig->templateId,
-                $spreadSheetName
+                $spreadSheetName,
+                $this->googleConfig->destinationFolderId
             );
 
             $googleSheetsService = new googleSheetsAPIService($this->googleConfig->applicationName);
