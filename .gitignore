@@ -1,3 +1,4 @@
 /vendor
 config.json
+config.live
 google_sheet_cred.json
