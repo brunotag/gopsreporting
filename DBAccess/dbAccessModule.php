@@ -1,8 +1,8 @@
 <?php
-    require_once __DIR__.'/DBAccess/internals/db.php';
-    require_once __DIR__.'/DBAccess/internals/dbObjects/totalsDbObject.php';
-    require_once __DIR__.'/DBAccess/internals/dbObjects/utilisationByCategoryDbObject.php';
-    require_once __DIR__.'/DBAccess/services/dataService.php';
+    require_once './DBAccess/internals/db.php';
+    require_once './DBAccess/internals/dbObjects/totalsDbObject.php';
+    require_once './DBAccess/internals/dbObjects/utilisationByCategoryDbObject.php';
+    require_once './DBAccess/services/dataService.php';
 
     class dbAccessModule{
         private $sqlConfig;

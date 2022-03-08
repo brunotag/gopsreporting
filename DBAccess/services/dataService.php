@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__.'/DBAccess/model/dataSet.php';
+    require_once './DBAccess/model/dataSet.php';
 
     class dataService{
         private $totalsDbObject;

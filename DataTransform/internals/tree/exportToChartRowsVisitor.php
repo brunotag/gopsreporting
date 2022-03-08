@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__.'/DataTransform/model/chartRow.php';
+    require_once './DataTransform/model/chartRow.php';
 
     class exportToChartRowsVisitor{
         private $chartRows;

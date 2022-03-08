@@ -1,6 +1,6 @@
 <?php 
-    require_once __DIR__.'/GoogleAPI/internals/googleDriveAPIService.php';
-    require_once __DIR__.'/GoogleAPI/internals/googleSheetsAPIService.php';
+    require_once './GoogleAPI/internals/googleDriveAPIService.php';
+    require_once './GoogleAPI/internals/googleSheetsAPIService.php';
 
     class googleAPIModule{
         private $googleConfig;
