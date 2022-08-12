@@ -5,7 +5,7 @@ require './DBAccess/dbAccessModule.php';
 require './DataTransform/dataTransformModule.php';
 require './GoogleAPI/googleAPIModule.php';
 
-$argc > 2 || die('error:provide month and year.');
+$argc <> 2 || die('error:provide month and year.');
 $month = $argv[1];
 $year = $argv[2];
 ($year >= 2000 && $year <= 2200) || die('error: year out of range.');
